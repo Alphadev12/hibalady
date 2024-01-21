@@ -4,8 +4,9 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap.css">
         {% block stylesheets %}
-        <link rel="stylesheet" type="text/css" href="/lib/bootstrap/css/bootstrap.css">
+            {{ ux_controller_link_tags() }}
         {% endblock %}
 
         {% block javascripts %}
@@ -17,5 +18,11 @@
         {{ include('includes/_navbar.html.twig')}}
 
         {% block body %}{% endblock %}
+
+        {{ include('includes/_footer.html.twig')}}
+
+
+        <script src="/lib/bootstrap/js/bootstrap.js"></script>
+
     </body>
 </html>
