@@ -3,41 +3,21 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-	<img src="https://picsum.photos/1200/150" class="card-img-top" alt="...">
 	<div class="container">
+		<img src="https://picsum.photos/1200/250" class="card-img-top rounded" alt="...">
 		<h1 class="text-center py-4">Bienvenue sur Hibalady</h1>
 		<p>Découvrez les meilleures destinations pour une journée parfaite de détente, de plaisir et de délicieux repas. Notre site est votre guide ultime pour trouver les piscines les plus rafraîchissantes, les restaurants les plus délicieux et les lieux de détente les plus charmants, réunis dans des endroits exceptionnels. Que vous recherchiez une escapade relaxante en famille, une sortie entre amis ou une expérience romantique, nous avons les destinations idéales pour vous.</p>
 		
 
-		<div id="piscine" class="py-4">
+		<section id="piscine">
 			<h2>Explorez nos Destinations Piscine</h2>
 			<p>Plongez dans des piscines à couper le souffle, entourées par une ambiance paisible et des paysages enchanteurs. De piscines naturelles à des complexes aquatiques sophistiqués, chaque endroit que nous avons sélectionné offre une expérience unique. Trouvez la destination piscine qui correspond à vos préférences et créez des souvenirs inoubliables avec vos proches.</p>
 
-			<div class="row justify-content-center">
+			<div class="row">
 				{% for destination in destinations %}
-					<div class="col-6 col-md-4">
-						<div class="card text-center text-white" style="width: 18rem; background-image: url('https://picsum.photos/600/400');">
+					<div class="col-md-4 mb-2">
+						<div class="card text-center text-white" style="background-image: url('https://picsum.photos/600/400');">
 							{# <img src="https://picsum.photos/600/400" class="card-img-top" alt="..."> #}
-							<div class="card-body" style="padding-top: 200px;">
-								<h5 class="card-title">{{destination.nom}}</h5>
-								<p class="card-text">Andranobevava</p>
-								{# <a href="#" class="btn btn-primary">Plus d'information</a> #}
-							</div>
-						</div>
-					</div>
-				{% endfor %}
-			</div>
-		</div>
-
-		<div id="restaurant" class="py-4">
-			<h2>Découvrez nos Restaurants Gourmands</h2>
-			<p>Savourez des plats exquis dans des restaurants soigneusement choisis pour leur cuisine exceptionnelle et leur atmosphère accueillante. Des saveurs locales aux mets internationaux, nos destinations restaurant vous offrent un festin pour les sens. Faites de chaque repas une expérience gastronomique, que ce soit en couple, en famille ou entre amis.</p>
-
-			<div class="row justify-content-center">
-				{% for destination in destinations %}
-					<div class="col-md-4">
-						<div class="card" style="width: 18rem;">
-							<img src="https://picsum.photos/600/400" class="card-img-top" alt="...">
 							<div class="card-body">
 								<h5 class="card-title">{{destination.nom}}</h5>
 								<p class="card-text">Andranobevava</p>
@@ -47,7 +27,27 @@
 					</div>
 				{% endfor %}
 			</div>
-		</div>
+		</section>
+
+		<section id="restaurant">
+			<h2>Découvrez nos Restaurants Gourmands</h2>
+			<p>Savourez des plats exquis dans des restaurants soigneusement choisis pour leur cuisine exceptionnelle et leur atmosphère accueillante. Des saveurs locales aux mets internationaux, nos destinations restaurant vous offrent un festin pour les sens. Faites de chaque repas une expérience gastronomique, que ce soit en couple, en famille ou entre amis.</p>
+
+			<div class="row justify-content-center">
+				{% for destination in destinations %}
+					<div class="col-md-4 mb-4">
+						<div class="card text-center border-0">
+							<img src="https://picsum.photos/600/304" class="card-img-top rounded" alt="...">
+							<div class="card-body">
+								<h5 class="card-title">{{destination.nom}}</h5>
+								<p class="card-text">Andranobevava</p>
+								{# <a href="#" class="btn btn-primary">Plus d'information</a> #}
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</section>
 		
 	</div>
 

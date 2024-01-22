@@ -1,0 +1,27 @@
+.container {
+  max-width: 1140px;
+}
+.space {
+  padding: 14px 0;
+}
+body {
+  font-family: "Mona Sans";
+}
+.navbar {
+  padding: 15px 0;
+  background-color: #1a2e48;
+}
+.navbar .nav-link:hover {
+  color: #fec140;
+}
+section {
+  padding: 14px 0;
+}
+#footer {
+  padding: 3rem 0;
+  background-color: #1a2e48;
+  color: #fff;
+}
+.card-text {
+  color: #fec140;
+}

@@ -1,0 +1,44 @@
+// Couleurs
+
+@bleu : #1a2e48;
+@jaune : #fec140;
+
+.container{
+    max-width: 1140px;
+}
+
+.space{
+    padding: 14px 0;
+}
+
+body{
+    font-family: "Mona Sans";
+}
+
+.navbar{
+    padding: 15px 0;
+    background-color: @bleu;
+
+    .nav-link{
+        &:hover{
+            color: @jaune;
+        }
+
+    }
+}
+
+section{
+    .space;
+}
+
+#footer{
+    padding: 3rem 0;
+    background-color: @bleu;
+
+    color: #fff;
+}
+
+// Cards
+.card-text{
+    color: @jaune;
+}
