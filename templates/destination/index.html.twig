@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ destination.nom }}{% endblock %}
+
+{% block body %}
+    <section id="publicite" class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>{{ destination.nom }}</h1>
+                <h4 class="text-warning">{{ destination.adresse }}</h4>
+                <p>{{ destination.description | raw}}</p>
+                <img src="https://picsum.photos/1280/400" alt="" class="img-fluid rounded">
+            </div>
+        </div>
+    </section>
+{% endblock %}
