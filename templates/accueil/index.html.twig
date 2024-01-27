@@ -16,11 +16,15 @@
 			<div class="row">
 				{% for destination in destinations %}
 					<div class="col-md-4 mb-2">
+						{% if destination.imageName is not empty %}
+						<div class="card text-center text-white" style="background-image: url('{{ vich_uploader_asset(destination) }}'); background-size: cover;">
+						{% else %}
 						<div class="card text-center text-white" style="background-image: url('https://picsum.photos/600/400');">
+						{% endif %}
 							{# <img src="https://picsum.photos/600/400" class="card-img-top" alt="..."> #}
 							<div class="card-body">
 								<h5 class="card-title">{{destination.nom}}</h5>
-								<p class="card-text">Andranobevava</p>
+								<p class="card-text">{{destination.adresse}}</p>
 								{# <a href="#" class="btn btn-primary">Plus d'information</a> #}
 							</div>
 						</div>
@@ -37,10 +41,14 @@
 				{% for destination in destinations %}
 					<div class="col-md-4 mb-4">
 						<div class="card text-center border-0">
-							<img src="https://picsum.photos/600/304" class="card-img-top rounded" alt="...">
+						{% if destination.imageName is not empty %}
+							<img src="{{ vich_uploader_asset(destination) }}" class="card-img-top rounded" alt="...">
+						{% else %}
+							<img src="https://picsum.photos/600/379" class="card-img-top rounded" alt="...">
+						{% endif %}
 							<div class="card-body">
 								<h5 class="card-title">{{destination.nom}}</h5>
-								<p class="card-text">Andranobevava</p>
+								<p class="card-text">{{ destination.adresse }}</p>
 								{# <a href="#" class="btn btn-primary">Plus d'information</a> #}
 							</div>
 						</div>

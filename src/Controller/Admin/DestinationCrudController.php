@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class DestinationCrudController extends AbstractCrudController
 {
@@ -15,14 +16,17 @@ class DestinationCrudController extends AbstractCrudController
         return Destination::class;
     }
 
-    /*
+    
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
+            TextField::new('nom'),
             TextEditorField::new('description'),
+            TextField::new('adresse'),
+            TextField::new('imageFile')->setFormType(VichFileType::class, [
+                'delete_label' => 'Supprimer?'
+            ])->onlyOnForms(),
         ];
     }
-    */
+   
 }
