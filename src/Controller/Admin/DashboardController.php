@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Destination;
+use App\Entity\DestinationImage;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -44,5 +45,6 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Destinations', 'fas fa-list', Destination::class);
+        // yield MenuItem::linkToCrud('Images', 'fas fa-list', DestinationImage::class);
     }
 }

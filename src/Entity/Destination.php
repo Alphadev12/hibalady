@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\DestinationRepository;
 use DateTimeImmutable;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
@@ -43,9 +45,13 @@ class Destination
      #[ORM\Column(length: 255, nullable: true)]
      private ?string $adresse = null;
 
+     #[ORM\OneToMany(mappedBy: 'destination', targetEntity: DestinationImage::class, orphanRemoval: true, cascade: ['persist'])]
+     private Collection $images;
+
     public function __construct()
     {
         $this->createdAt = new DateTimeImmutable();
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -145,6 +151,36 @@ class Destination
     public function setAdresse(?string $adresse): static
     {
         $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, DestinationImage>
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(DestinationImage $image): static
+    {
+        if (!$this->images->contains($image)) {
+            $this->images->add($image);
+            $image->setDestination($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(DestinationImage $image): static
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getDestination() === $this) {
+                $image->setDestination(null);
+            }
+        }
 
         return $this;
     }

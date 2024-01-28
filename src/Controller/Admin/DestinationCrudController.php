@@ -3,7 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Destination;
+use App\Form\DestinationImageType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -26,6 +28,7 @@ class DestinationCrudController extends AbstractCrudController
             TextField::new('imageFile')->setFormType(VichFileType::class, [
                 'delete_label' => 'Supprimer?'
             ])->onlyOnForms(),
+            CollectionField::new('images')->setEntryType(DestinationImageType::class)
         ];
     }
    
