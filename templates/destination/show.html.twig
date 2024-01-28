@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ destination.nom }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <section id="publicite">
+            <div class="row">
+                <div class="col-12">
+                    <h1>{{ destination.nom }}</h1>
+                    <h4 class="text-warning">{{ destination.adresse }}</h4>
+                    <p>{{ destination.description | raw}}</p>
+                    <img src="{{ vich_uploader_asset(destination)}}" alt="" class="img-fluid rounded">
+                </div>
+            </div>
+        </section>
+    
+        {% if destination.images is not empty or null %}
+            <section>
+                <h2>Galleries</h2>
+                    <div class="row justify-content-between">
+                    {% for image in destination.images %}
+                        <div class="col-6">
+                            <img src="{{ vich_uploader_asset(image, 'file')}}" alt="{{ image.nom }}" class="img-fluid rounded">
+                        </div>
+                    {% endfor %}
+                        </div>
+            </section>
+        {% endif %}
+    </div>
+{% endblock %}

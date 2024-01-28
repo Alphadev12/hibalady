@@ -13,7 +13,7 @@ class DestinationController extends AbstractController
     #[Route('/destination/{id}', name: 'destination.show')]
     public function index(Destination $destination): Response
     {
-        return $this->render('destination/index.html.twig', [
+        return $this->render('destination/show.html.twig', [
             'destination' => $destination,
         ]);
     }

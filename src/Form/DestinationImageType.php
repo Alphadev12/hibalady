@@ -15,7 +15,10 @@ class DestinationImageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('file', VichImageType::class, ['label' => 'Images']);
+        ->add('file', VichImageType::class, [
+            'label' => 'Images',
+            'empty_data' => ''
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
