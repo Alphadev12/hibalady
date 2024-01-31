@@ -48,7 +48,7 @@ class DestinationImage
         return $this->nom;
     }
 
-    public function setNom(string $nom): static
+    public function setNom(?string $nom): static
     {
         $this->nom = $nom;
 
@@ -60,7 +60,7 @@ class DestinationImage
         return $this->taille;
     }
 
-    public function setTaille(int $taille): static
+    public function setTaille(?int $taille): static
     {
         $this->taille = $taille;
 

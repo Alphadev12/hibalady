@@ -17,7 +17,6 @@ class DestinationImageType extends AbstractType
         $builder
         ->add('file', VichImageType::class, [
             'label' => 'Images',
-            'empty_data' => ''
         ]);
     }
 
